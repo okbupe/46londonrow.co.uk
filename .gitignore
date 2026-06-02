@@ -1,0 +1,10 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/
+
+# Don't ignore the images folder, just its placeholder noise
+assets/images/*.tmp

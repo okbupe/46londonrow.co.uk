@@ -20,22 +20,22 @@ Plain HTML, CSS and JavaScript. No frameworks, no build step. Open
 └── README.md
 ```
 
-## Adding the real photos
+## Photos
 
-The page ships with tasteful colour placeholders so it looks finished before
-photos arrive. To use real images, add JPGs to `assets/images/` with these names:
+Real property photos are included in `assets/images/`, resized and compressed
+for fast loading:
 
 | File | Used for |
 |------|----------|
-| `hero.jpg`   | Big banner at the top (front of the house, landscape) |
-| `kitchen.jpg`| Kitchen & living room section |
-| `annex.jpg`  | The annex section |
+| `hero.jpg` | Top banner (front elevation) |
+| `kitchen.jpg` | Kitchen & living room section |
+| `annex.jpg` | The annex section |
 | `garden.jpg` | Garden & outdoor living section |
+| `floor-ground/first/second.jpg` | The three floor cards |
+| `gallery-1.jpg` to `gallery-9.jpg` | The photo gallery (click to enlarge) |
 
-The hero loads automatically once `hero.jpg` exists. For the other three,
-in `assets/css/styles.css` find the `.split-media[data-img="..."]` blocks (or
-add one) and set `background-image`. A quick example is in that file's comments.
-Aim for ~1600px wide, compressed JPGs for fast loading.
+To swap any photo, replace the file with one of the same name (keep it
+landscape and roughly the same shape). Aim for ~1400px wide JPGs.
 
 ## Viewing it
 

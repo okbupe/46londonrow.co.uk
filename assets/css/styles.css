@@ -184,23 +184,21 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
   background-image: linear-gradient(135deg, rgba(191,151,106,.9), rgba(93,72,51,.95));
   position: relative; overflow: hidden;
 }
-/* --- Drop in real photos: uncomment and the gradient placeholder is replaced ---
+/* Real photos wired in */
 .split-media[data-img="kitchen"] { background-image: url("../images/kitchen.jpg"); }
 .split-media[data-img="annex"]   { background-image: url("../images/annex.jpg"); }
 .split-media[data-img="garden"]  { background-image: url("../images/garden.jpg"); }
-   (when a real photo is set, hide the corner label below) */
-.split-media[data-img]::after {
-  content: attr(data-img);
-  position: absolute; inset: auto 0 0 0; padding: .5rem .8rem;
-  font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
-  color: rgba(255,255,255,.75); background: linear-gradient(transparent, rgba(0,0,0,.35));
-}
 .split-body p + p, .split-body p + .tick-list { margin-top: 1rem; }
 .split-body h2 { margin-bottom: .3rem; }
 
 /* ---------- Floor cards ---------- */
 .floor-cards { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.floor-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.8rem; box-shadow: var(--shadow-sm); }
+.floor-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .2s ease, box-shadow .2s ease; }
+.floor-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.floor-photo { aspect-ratio: 16 / 10; overflow: hidden; }
+.floor-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.floor-card:hover .floor-photo img { transform: scale(1.05); }
+.floor-body { padding: 1.5rem 1.8rem 1.8rem; }
 .floor-tag { display: inline-block; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--tan-400); font-weight: 600; margin-bottom: .8rem; }
 .floor-card h3 { font-size: 1.25rem; margin-bottom: .5rem; }
 .floor-card p { color: var(--ink-soft); font-size: .95rem; }
@@ -254,6 +252,42 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 .footer-brand .brand-text small { color: rgba(251,253,243,.55); }
 .footer-brand .brand-text { color: var(--cream-100); }
 .disclaimer { font-size: .78rem; line-height: 1.6; color: rgba(251,253,243,.55); }
+
+/* ---------- Gallery ---------- */
+.gallery-grid { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.gallery-item {
+  display: block; width: 100%; padding: 0; border: 0; cursor: pointer;
+  border-radius: 12px; overflow: hidden; background: var(--paper-2);
+  aspect-ratio: 4 / 3; box-shadow: var(--shadow-sm);
+}
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; display: block; }
+.gallery-item:hover img, .gallery-item:focus-visible img { transform: scale(1.06); }
+.gallery-item:focus-visible { outline: 3px solid var(--tan-500); outline-offset: 2px; }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(20, 13, 7, .92); padding: clamp(1rem, 4vw, 3rem);
+  opacity: 0; transition: opacity .2s ease;
+}
+.lightbox:not([hidden]) { opacity: 1; }
+.lightbox[hidden] { display: none; }
+.lightbox-img { max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.lightbox-close, .lightbox-nav {
+  position: absolute; background: rgba(255,255,255,.12); color: #fff; border: 0; cursor: pointer;
+  width: 3rem; height: 3rem; border-radius: 50%; font-size: 1.6rem; line-height: 1;
+  display: grid; place-items: center; transition: background .2s ease;
+}
+.lightbox-close:hover, .lightbox-nav:hover { background: rgba(255,255,255,.28); }
+.lightbox-close { top: 1.2rem; right: 1.2rem; }
+.lightbox-nav { top: 50%; transform: translateY(-50%); }
+.lightbox-prev { left: 1.2rem; }
+.lightbox-next { right: 1.2rem; }
+@media (max-width: 640px) {
+  .lightbox-nav { top: auto; bottom: 1.2rem; transform: none; }
+  .lightbox-prev { left: 30%; } .lightbox-next { right: 30%; }
+}
 
 /* ---------- Sticky mobile CTA ---------- */
 .sticky-cta {

@@ -36,6 +36,7 @@
           <li><a href="#interior">Interior</a></li>
           <li><a href="#annex">Annex</a></li>
           <li><a href="#garden">Garden</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#area">Area</a></li>
           <li><a href="#story">Our Story</a></li>
           <li><a class="nav-cta" href="#viewing">Book a viewing</a></li>
@@ -108,19 +109,28 @@
         </header>
         <div class="floor-cards">
           <article class="floor-card">
-            <div class="floor-tag">Ground floor</div>
-            <h3>Kitchen, living &amp; annex</h3>
-            <p>Open-plan kitchen and living space with French doors to the garden, plus access to the self-contained annex.</p>
+            <div class="floor-photo"><img src="assets/images/floor-ground.jpg" alt="Open-plan living area on the ground floor" loading="lazy" /></div>
+            <div class="floor-body">
+              <div class="floor-tag">Ground floor</div>
+              <h3>Kitchen, living &amp; annex</h3>
+              <p>Open-plan kitchen and living space with French doors to the garden, plus access to the self-contained annex.</p>
+            </div>
           </article>
           <article class="floor-card">
-            <div class="floor-tag">First floor</div>
-            <h3>Bedrooms &amp; family bathroom</h3>
-            <p>Three well-proportioned bedrooms (two doubles and a generous single) centred on a bright family bathroom with a custom mirror integrated into the window panel.</p>
+            <div class="floor-photo"><img src="assets/images/floor-first.jpg" alt="Family bathroom on the first floor" loading="lazy" /></div>
+            <div class="floor-body">
+              <div class="floor-tag">First floor</div>
+              <h3>Bedrooms &amp; family bathroom</h3>
+              <p>Three well-proportioned bedrooms (two doubles and a generous single) centred on a bright family bathroom with a custom mirror integrated into the window panel.</p>
+            </div>
           </article>
           <article class="floor-card">
-            <div class="floor-tag">Second floor</div>
-            <h3>Master suite &amp; ensuite</h3>
-            <p>Loft master bedroom lit by two skylights and a large window, with breathtaking field views, bespoke his-and-hers storage, a custom vanity area and a fully fitted ensuite.</p>
+            <div class="floor-photo"><img src="assets/images/floor-second.jpg" alt="Loft master bedroom with field views" loading="lazy" /></div>
+            <div class="floor-body">
+              <div class="floor-tag">Second floor</div>
+              <h3>Master suite &amp; ensuite</h3>
+              <p>Loft master bedroom lit by two skylights and a large window, with breathtaking field views, bespoke his-and-hers storage, a custom vanity area and a fully fitted ensuite.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -186,8 +196,29 @@
       </div>
     </section>
 
+    <!-- ===== Gallery ===== -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Gallery</p>
+          <h2>Take a look around</h2>
+        </header>
+        <ul class="gallery-grid">
+          <li><button class="gallery-item" data-full="assets/images/gallery-1.jpg"><img src="assets/images/gallery-1.jpg" alt="Aerial view of the property and garden" loading="lazy" /></button></li>
+          <li><button class="gallery-item" data-full="assets/images/gallery-3.jpg"><img src="assets/images/gallery-3.jpg" alt="Open-plan living and dining room" loading="lazy" /></button></li>
+          <li><button class="gallery-item" data-full="assets/images/gallery-4.jpg"><img src="assets/images/gallery-4.jpg" alt="Cosy lounge area" loading="lazy" /></button></li>
+          <li><button class="gallery-item" data-full="assets/images/gallery-5.jpg"><img src="assets/images/gallery-5.jpg" alt="Loft master bedroom with twin skylights" loading="lazy" /></button></li>
+          <li><button class="gallery-item" data-full="assets/images/gallery-2.jpg"><img src="assets/images/gallery-2.jpg" alt="Master bedroom with field views" loading="lazy" /></button></li>
+          <li><button class="gallery-item" data-full="assets/images/gallery-6.jpg"><img src="assets/images/gallery-6.jpg" alt="Double bedroom" loading="lazy" /></button></li>
+          <li><button class="gallery-item" data-full="assets/images/gallery-7.jpg"><img src="assets/images/gallery-7.jpg" alt="Walk-in shower room" loading="lazy" /></button></li>
+          <li><button class="gallery-item" data-full="assets/images/gallery-8.jpg"><img src="assets/images/gallery-8.jpg" alt="Landscaped garden with pond and pergola" loading="lazy" /></button></li>
+          <li><button class="gallery-item" data-full="assets/images/gallery-9.jpg"><img src="assets/images/gallery-9.jpg" alt="Covered veranda lit up at night" loading="lazy" /></button></li>
+        </ul>
+      </div>
+    </section>
+
     <!-- ===== Area ===== -->
-    <section class="section" id="area">
+    <section class="section section-alt" id="area">
       <div class="container">
         <header class="section-head">
           <p class="eyebrow">Discover Arlesey</p>
@@ -267,6 +298,14 @@
       <p class="disclaimer">Whilst every attempt has been made to ensure accuracy, all measurements and details are approximate and for illustrative purposes only. Services, systems and appliances have not been tested and no guarantee as to their operability or efficiency can be given. Prospective purchasers should satisfy themselves on all matters.</p>
     </div>
   </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous photo">&#8249;</button>
+    <img class="lightbox-img" src="" alt="" />
+    <button class="lightbox-nav lightbox-next" aria-label="Next photo">&#8250;</button>
+  </div>
 
   <!-- Sticky mobile CTA -->
   <a class="sticky-cta" href="#viewing">Book a viewing &middot; &pound;585k</a>

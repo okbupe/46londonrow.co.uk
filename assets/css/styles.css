@@ -157,6 +157,13 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 /* On the taller desktop hero the same gradient leaves the upper image brighter,
    so add extra tint to match the (good) mobile darkness. */
 @media (min-width: 861px) {
+  /* Let the hero adopt the photo's own aspect ratio so the full-width image
+     fits the page instead of being cropped by a fixed tall height. */
+  .hero {
+    min-height: 480px;
+    aspect-ratio: 1723 / 970;
+    max-height: 92vh;
+  }
   .hero-overlay {
     background:
       linear-gradient(to top, rgba(12,8,4,.92) 0%, rgba(16,11,6,.8) 45%, rgba(16,11,6,.72) 100%),

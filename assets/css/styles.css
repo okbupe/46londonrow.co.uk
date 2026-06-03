@@ -122,7 +122,7 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 .brand-text small { font-family: var(--font-body); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
 
 .nav { display: flex; align-items: center; }
-.nav-menu { display: flex; align-items: center; gap: 1.6rem; font-size: .95rem; font-weight: 400; }
+.nav-menu { display: flex; align-items: center; gap: 1.6rem; font-size: .95rem; font-weight: 500; }
 .nav-menu a:not(.nav-cta) { color: var(--ink-soft); padding: .3rem 0; position: relative; }
 .nav-menu a:not(.nav-cta):hover { color: var(--ink); }
 .nav-menu a:not(.nav-cta)::after {

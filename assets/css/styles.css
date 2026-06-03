@@ -153,16 +153,12 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 }
 .hero-content { padding-top: clamp(3rem, 8vw, 6rem); padding-bottom: clamp(5rem, 15vw, 9rem); }
 @media (min-width: 861px) {
-  /* Desktop: the photo fits the full page WIDTH and the hero height follows
-     the image, so the whole photo is shown with nothing cropped. */
-  .hero { display: block; min-height: 0; }
-  .hero-img { position: static; width: 100%; height: auto; object-fit: initial; }
+  /* Default tall hero. Image scaled to the full page width (horizontal edges
+     meet the page edges), anchored to the top, bottom cropped. */
+  .hero-img { object-position: center top; }
   .hero-overlay {
-    z-index: 1;
     background: linear-gradient(to top, rgba(12,8,4,.85) 0%, rgba(16,11,6,.5) 45%, rgba(16,11,6,.32) 100%);
   }
-  .hero-content { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; }
-  .scroll-hint { z-index: 2; }
 }
 .hero .eyebrow { color: var(--tan-500); }
 .hero h1 { font-size: clamp(2.4rem, 7vw, 5rem); font-weight: 500; }

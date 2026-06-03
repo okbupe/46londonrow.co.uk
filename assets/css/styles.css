@@ -24,8 +24,8 @@
   --shadow-sm: 0 2px 8px rgba(61, 40, 23, .08);
   --shadow-md: 0 18px 50px -20px rgba(61, 40, 23, .35);
 
-  --font-head: "Fraunces", Georgia, "Times New Roman", serif;
-  --font-body: "Google Sans", "Product Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-head: "Gloock", Georgia, "Times New Roman", serif;
+  --font-body: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 /* ---------- Reset ---------- */

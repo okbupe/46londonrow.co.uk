@@ -335,14 +335,14 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
   .nav-toggle { display: block; z-index: 120; }
   .nav-menu {
     position: fixed; inset: 0 0 0 auto; width: min(78vw, 300px); z-index: 110;
-    flex-direction: column; align-items: flex-start; justify-content: flex-start;
-    gap: .65rem; padding: 5.25rem 2.2rem 2rem;
+    flex-direction: column; align-items: flex-start; justify-content: center;
+    gap: .65rem; padding: 2rem 2.2rem;
     background: var(--paper); box-shadow: -20px 0 60px rgba(0,0,0,.2);
     transform: translateX(100%); transition: transform .3s ease; font-size: 1.15rem;
     overflow-y: auto;
   }
-  .nav-menu a { padding: .35rem 0; }
-  .nav-menu .nav-cta { margin-top: .6rem; }
+  .nav-menu a:not(.nav-cta) { padding: .35rem 0; }
+  .nav-menu .nav-cta { margin-top: .6rem; padding: .7rem 1.4rem; }
   .nav-menu.open { transform: translateX(0); }
   .nav-scrim {
     display: block; position: fixed; inset: 0; z-index: 105;

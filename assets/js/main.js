@@ -6,23 +6,27 @@
   /* ---------- Mobile nav ---------- */
   var toggle = document.querySelector(".nav-toggle");
   var menu = document.getElementById("nav-menu");
+  var scrim = document.getElementById("nav-scrim");
 
-  function closeMenu() {
-    menu.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-label", "Open menu");
+  function setMenu(open) {
+    menu.classList.toggle("open", open);
+    if (scrim) scrim.classList.toggle("open", open);
+    document.body.classList.toggle("nav-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   }
+  function closeMenu() { setMenu(false); }
 
   if (toggle && menu) {
     toggle.addEventListener("click", function () {
-      var open = menu.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      setMenu(!menu.classList.contains("open"));
     });
     // Close when a link is tapped
     menu.addEventListener("click", function (e) {
       if (e.target.tagName === "A") closeMenu();
     });
+    // Close when the scrim (area outside the menu) is tapped
+    if (scrim) scrim.addEventListener("click", closeMenu);
     // Close on Escape
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && menu.classList.contains("open")) closeMenu();

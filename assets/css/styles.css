@@ -101,9 +101,14 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 /* ---------- Header ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid var(--line);
+}
+/* Blur lives on a pseudo-element so the header itself is NOT a containing block
+   for the fixed-position mobile menu (backdrop-filter would otherwise trap it). */
+.site-header::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
   background: rgba(248,247,244,.85);
   backdrop-filter: saturate(140%) blur(10px);
-  border-bottom: 1px solid var(--line);
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; padding: .75rem 0; }
 .brand { display: inline-flex; align-items: center; gap: .7rem; }
@@ -128,6 +133,7 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 .nav-cta { background: var(--brown-700); color: var(--cream-100); padding: .55rem 1.1rem; border-radius: 999px; }
 .nav-cta:hover { background: var(--brown-800); }
 
+.nav-scrim { display: none; }
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: .5rem; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: .25s; border-radius: 2px; }
 
@@ -306,13 +312,22 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 @media (max-width: 860px) {
   .nav-toggle { display: block; z-index: 120; }
   .nav-menu {
-    position: fixed; inset: 0 0 0 auto; width: min(80vw, 320px);
+    position: fixed; inset: 0 0 0 auto; width: min(80vw, 320px); z-index: 110;
     flex-direction: column; align-items: flex-start; justify-content: center;
     gap: 1.6rem; padding: 2rem 2.2rem;
     background: var(--paper); box-shadow: -20px 0 60px rgba(0,0,0,.2);
     transform: translateX(100%); transition: transform .3s ease; font-size: 1.15rem;
+    overflow-y: auto;
   }
   .nav-menu.open { transform: translateX(0); }
+  .nav-scrim {
+    display: block; position: fixed; inset: 0; z-index: 105;
+    background: rgba(20, 13, 7, .5); border: 0;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity .3s ease, visibility .3s ease;
+  }
+  .nav-scrim.open { opacity: 1; visibility: visible; pointer-events: auto; }
+  body.nav-open { overflow: hidden; }
   .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }

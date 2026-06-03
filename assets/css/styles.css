@@ -139,13 +139,11 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: min(92vh, 820px); display: flex; align-items: flex-end; color: #fff; isolation: isolate; }
-.hero-media {
+/* Mobile: image fills the tall hero (cover). */
+.hero-img {
   position: absolute; inset: 0; z-index: -2;
-  background:
-    linear-gradient(120deg, rgba(97,62,38,.25), rgba(61,40,23,.15)),
-    url("../images/hero.jpg") center/cover no-repeat,
-    linear-gradient(135deg, #8a6b4d, #5d4833 60%, #3d2817);
-  background-blend-mode: normal;
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  background: linear-gradient(135deg, #8a6b4d, #5d4833 60%, #3d2817);
 }
 .hero-overlay {
   position: absolute; inset: 0; z-index: -1;
@@ -155,14 +153,16 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 }
 .hero-content { padding-top: clamp(3rem, 8vw, 6rem); padding-bottom: clamp(5rem, 15vw, 9rem); }
 @media (min-width: 861px) {
-  /* Full-bleed cover so the photo spans the full page width.
-     (aspect-ratio + max-height shrank the width on large displays.) */
-  .hero { min-height: min(88vh, 820px); }
-  /* Lighter overlay on desktop, kept a touch darker at the bottom so the
-     text stays readable. */
+  /* Desktop: the photo fits the full page WIDTH and the hero height follows
+     the image, so the whole photo is shown with nothing cropped. */
+  .hero { display: block; min-height: 0; }
+  .hero-img { position: static; width: 100%; height: auto; object-fit: initial; }
   .hero-overlay {
-    background: linear-gradient(to top, rgba(12,8,4,.72) 0%, rgba(16,11,6,.38) 50%, rgba(16,11,6,.24) 100%);
+    z-index: 1;
+    background: linear-gradient(to top, rgba(12,8,4,.85) 0%, rgba(16,11,6,.5) 45%, rgba(16,11,6,.32) 100%);
   }
+  .hero-content { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; }
+  .scroll-hint { z-index: 2; }
 }
 .hero .eyebrow { color: var(--tan-500); }
 .hero h1 { font-size: clamp(2.4rem, 7vw, 5rem); font-weight: 500; }
@@ -336,7 +336,9 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
     overflow-y: auto;
   }
   .nav-menu a:not(.nav-cta) { padding: .35rem 0; }
-  .nav-menu .nav-cta { margin-top: 1.6rem; padding: .7rem 1.4rem; }
+  /* Drop the CTA to the bottom of the panel, out of flow, so the links above
+     stay exactly where they are. */
+  .nav-menu .nav-cta { position: absolute; left: 2.2rem; bottom: 2.5rem; margin: 0; padding: .7rem 1.4rem; }
   .nav-menu.open { transform: translateX(0); }
   .nav-scrim {
     display: block; position: fixed; inset: 0; z-index: 105;

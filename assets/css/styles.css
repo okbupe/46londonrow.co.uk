@@ -154,6 +154,15 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
     rgba(12,8,4,.2);
 }
 .hero-content { padding-top: clamp(3rem, 8vw, 6rem); padding-bottom: clamp(5rem, 15vw, 9rem); }
+/* On the taller desktop hero the same gradient leaves the upper image brighter,
+   so add extra tint to match the (good) mobile darkness. */
+@media (min-width: 861px) {
+  .hero-overlay {
+    background:
+      linear-gradient(to top, rgba(12,8,4,.92) 0%, rgba(16,11,6,.8) 45%, rgba(16,11,6,.72) 100%),
+      rgba(12,8,4,.34);
+  }
+}
 .hero .eyebrow { color: var(--tan-500); }
 .hero h1 { font-size: clamp(2.4rem, 7vw, 5rem); font-weight: 500; }
 .hero h1 span { font-style: italic; color: var(--tan-500); }
@@ -183,12 +192,13 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 .feature-grid p { color: var(--ink-soft); font-size: .95rem; }
 
 /* ---------- Split sections ---------- */
-.split { display: grid; gap: clamp(1.8rem, 5vw, 4rem); align-items: center; }
+.split { display: grid; gap: clamp(1.8rem, 5vw, 4rem); align-items: center; grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 880px) {
-  .split { grid-template-columns: 1.05fr 1fr; }
+  .split { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
   .split.reverse .split-media { order: 2; }
 }
 .split-media {
+  width: 100%; min-width: 0;
   border-radius: var(--radius); min-height: 320px; aspect-ratio: 4 / 3;
   background-size: cover; background-position: center; box-shadow: var(--shadow-md);
   background-color: var(--tan-400);

@@ -37,7 +37,7 @@ body {
   color: var(--ink);
   background: var(--paper);
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 300;
   overflow-x: clip;
   max-width: 100%;
 }
@@ -72,7 +72,7 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
   text-transform: uppercase;
   letter-spacing: .18em;
   font-size: .74rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--tan-400);
   margin-bottom: .9rem;
 }
@@ -87,7 +87,7 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
   gap: .5rem;
   padding: .9rem 1.6rem;
   border-radius: 999px;
-  font-weight: 600; font-size: .95rem;
+  font-weight: 500; font-size: .95rem;
   letter-spacing: .02em;
   cursor: pointer; border: 1px solid transparent;
   transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
@@ -122,7 +122,7 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 .brand-text small { font-family: var(--font-body); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
 
 .nav { display: flex; align-items: center; }
-.nav-menu { display: flex; align-items: center; gap: 1.6rem; font-size: .95rem; font-weight: 500; }
+.nav-menu { display: flex; align-items: center; gap: 1.6rem; font-size: .95rem; font-weight: 400; }
 .nav-menu a:not(.nav-cta) { color: var(--ink-soft); padding: .3rem 0; position: relative; }
 .nav-menu a:not(.nav-cta):hover { color: var(--ink); }
 .nav-menu a:not(.nav-cta)::after {
@@ -222,7 +222,7 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 .floor-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .floor-card:hover .floor-photo img { transform: scale(1.05); }
 .floor-body { padding: 1.5rem 1.8rem 1.8rem; }
-.floor-tag { display: inline-block; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--tan-400); font-weight: 600; margin-bottom: .8rem; }
+.floor-tag { display: inline-block; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--tan-400); font-weight: 500; margin-bottom: .8rem; }
 .floor-card h3 { font-size: 1.25rem; margin-bottom: .5rem; }
 .floor-card p { color: var(--ink-soft); font-size: .95rem; }
 
@@ -230,7 +230,7 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 .tick-list li { position: relative; padding-left: 1.8rem; margin-bottom: .7rem; }
 .tick-list li::before {
   content: "✓"; position: absolute; left: 0; top: 0;
-  color: var(--tan-500); font-weight: 700;
+  color: var(--tan-500); font-weight: 600;
 }
 .section-dark .tick-list li::before { color: var(--tan-500); }
 .tick-list.cols { columns: 2; column-gap: 2.5rem; }
@@ -316,7 +316,7 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.1; 
 .sticky-cta {
   position: fixed; left: 50%; bottom: 1rem; transform: translateX(-50%);
   background: var(--brown-700); color: var(--cream-100);
-  padding: .85rem 1.6rem; border-radius: 999px; font-weight: 600; font-size: .95rem;
+  padding: .85rem 1.6rem; border-radius: 999px; font-weight: 500; font-size: .95rem;
   box-shadow: var(--shadow-md); z-index: 90; display: none;
 }
 .sticky-cta:hover { background: var(--brown-800); }
